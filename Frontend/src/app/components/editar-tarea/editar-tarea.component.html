@@ -1,0 +1,40 @@
+<div class="bg-base-200 p-6 rounded-lg shadow-md">
+    <h2 class="text-2xl font-bold mb-4">Editar Tarea</h2>
+    <form (ngSubmit)="updateTask()" class="space-y-4">
+      <!-- Campo de entrada para el título de la tarea -->
+      <div>
+        <label for="taskTitle" class="block text-sm font-medium mb-1">Título de la Tarea</label>
+        <input
+          id="taskTitle"
+          [(ngModel)]="newTaskTitle"
+          name="taskTitle"
+          type="text"
+          class="input input-bordered w-full"
+          required
+        />
+      </div>
+  
+      <!-- Campo de entrada para la descripción de la tarea -->
+      <div>
+        <label for="taskDescription" class="block text-sm font-medium mb-1">Descripción</label>
+        <textarea
+          id="taskDescription"
+          [(ngModel)]="newTaskDescription"
+          name="taskDescription"
+          class="textarea textarea-bordered w-full"
+          required
+        ></textarea>
+      </div>
+  
+      <!-- Botón para guardar cambios -->
+      <div>
+        <button type="submit" class="btn btn-primary w-full">
+          Guardar Cambios
+        </button>
+        <button type="button" class="btn btn-secondary w-full mt-2" (click)="closeModal()">
+          Cancelar
+        </button>
+      </div>
+    </form>
+  </div>
+  

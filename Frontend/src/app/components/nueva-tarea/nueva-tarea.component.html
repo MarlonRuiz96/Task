@@ -1,0 +1,49 @@
+<div class="bg-base-200 p-6 rounded-lg shadow-md">
+    <h2 class="text-2xl font-bold mb-4">Agregar Nueva Tarea</h2>
+    <form (ngSubmit)="addTask()" class="space-y-4">
+      <!-- Campo de entrada para el título de la tarea -->
+      <div>
+        <label for="taskTitle" class="block text-sm font-medium mb-1">Título de la Tarea</label>
+        <input
+          id="taskTitle"
+          [(ngModel)]="newTaskTitle"
+          name="taskTitle"
+          type="text"
+          placeholder="Escribe el título de la tarea"
+          class="input input-bordered w-full"
+          required
+        />
+        <p *ngIf="!newTaskTitle.trim()" class="text-sm text-error mt-1">
+          El título de la tarea es obligatorio.
+        </p>
+      </div>
+  
+      <!-- Campo de entrada para la descripción de la tarea -->
+      <div>
+        <label for="taskDescription" class="block text-sm font-medium mb-1">Descripción</label>
+        <textarea
+          id="taskDescription"
+          [(ngModel)]="newTaskDescription"
+          name="taskDescription"
+          placeholder="Escribe la descripción de la tarea"
+          class="textarea textarea-bordered w-full"
+          required
+        ></textarea>
+        <p *ngIf="!newTaskDescription.trim()" class="text-sm text-error mt-1">
+          La descripción de la tarea es obligatoria.
+        </p>
+      </div>
+  
+      <!-- Botón para agregar la tarea -->
+      <div>
+        <button
+          type="submit"
+          class="btn btn-primary w-full"
+          [disabled]="!newTaskTitle.trim() || !newTaskDescription.trim()"
+        >
+          Agregar Tarea
+        </button>
+      </div>
+    </form>
+  </div>
+  
